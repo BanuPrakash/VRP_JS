@@ -233,6 +233,42 @@ var ref2 = person.updateName.bind(person);
 ref2("Tim"); // works
 ```
 
+Follow on Twitter:
+addy osmani [Google Developer] --> JS Design Patterns
+and Dan Abramov [React Development team]
+
+===============================
+sudo npm i -g javascripting
+javascripting
+
+=======================
+
+functional style of Programming using HOF:
+High Order functions:
+1) function accepting function as argument
+2) functions returns a function [closure]
+
+Closure: when a function returns a function, returned function can access all the members of outer function in the form closure
+
+```
+    function adder(base) {
+        return function(no) {
+            return base + no;
+        }
+    }
+
+var fiveAdder = adder(5);
+
+fiveAdder(2); // 7
+fiveAdder(4);
+
+var tenAdder = adder(10); 
+tenAdder(2); // 12
+```
+
+
+
+
 
 
 
