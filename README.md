@@ -523,3 +523,35 @@ AAA ==> Assemble Action Assert
 
 Assert ==> Jasmine, Mocha, JEST or we can use 3rd party assertion libraries
 [Chai.js](https://www.chaijs.com/)
+
+===============================
+
+JS build tools: Task Runners
+* Grunt
+* Gulp
+* Webpack
+* vite
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, compilation, unit testing, and linting.
+
+linting ==> static code analysis
+
+airbnb, shopify
+
+==================
+https://www.npmjs.com/
+
+ webpack-example % npm init --y
+
+ webpack-example % npm i webpack webpack-cli babel-loader @babel/core @babel/preset-env -D
+
+ @babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s). 
+ This both makes your life easier and JavaScript bundles smaller!
+
+ A polyfill is a piece of code that adds functionality to an environment that doesn't natively support it.
+
+ https://www.npmjs.com/package/core-js
+
+ import Product from './Product';
+
+ 

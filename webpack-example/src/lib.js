@@ -1,8 +1,8 @@
-function add(x,y) {
+export default function add(x,y) {
     return x + y ;
 }
 
-function filter(elems, predicate) {
+export function filter(elems, predicate) {
     var results = [];
 
     elems.forEach(e => {
@@ -21,10 +21,4 @@ function map(elems, transformFn) {
             results.push(transformFn(e));
     });
     return results;
-}
-
-module.exports = {
-    add,
-    filter,
-    map
 }
