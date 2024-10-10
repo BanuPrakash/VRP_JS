@@ -1,7 +1,6 @@
-export default function add(x,y) {
-    return x + y ;
-}
-
+ const  add = (x,y) => x + y;
+ export default add;
+ 
 export function filter(elems, predicate) {
     var results = [];
 
