@@ -266,9 +266,141 @@ var tenAdder = adder(10);
 tenAdder(2); // 12
 ```
 
+JS versions: ECMA --> 
+
+ES5 target engine
+
+ES6 / ES2015 /JS6 version
+ES7 / ES2020/ JS 7 latest
+
+ES6+ version ===>  Babel / Tracuer  ===> ES5
+
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into backwards-compatible JavaScript code that can be run by older JavaScript engines.
+
+ES2015 / ES6 / JS6 features:
+1) arrow function [Syntax transform]
+2) template literal string [Syntax transform]
+`
+ <div class="card">
+  <div class="card-header">
+                        ${p.name}
+  </div>
+                    
+</div>
+`
+
+3) Destructuring
+3.1) objects
+
+var product = { "id": 34, "name": "iPhone 15", "price": 89000.00, "category": "mobile" };
+var product2 = { "id": 34, "name": "iPhone 15", "price": 89000.00, "category": "mobile" };
+
+console.log(product.name, product.price);
+
+With ES6
+var {name, price} = product;
+console.log(name, price);
+
+var {name: n2, price: p2} = product2;
+
+3.2) arrays
+
+var colors = ["red", "green", "blue", "pink", "orange"];
+
+old way:
+colors[0];
+
+with ES6:
+var [r, g, b, ...others] = colors;
+
+console.log(r); // red
+console.log(others); // ["pink", "orange"]
+
+4) let and const has block level scope
+
+Addy Osmani
+
+const PI = 3.14159;
+
+PI = 4.5; // error
+
+to declare block level scope
+
+function doTask() {
+    var x = 10;
+    if( x > 5) {
+        let y = 15;
+        console.log(y);
+    }
+
+    console.log(x); // 10
+    console.log(y); // error, y is block scope
+}
 
 
+function doTask() {
+    var x = 10;
+    if( x > 5) {
+        let _y = (function() {
+            var y = 20;
+            return {
+                y;
+            }
+        })();
+        console.log(_y());
+    }
 
+    console.log(x); // 10
+    console.log(y); // error, y is block scope
+}
 
+5) Promise 
+Promise is a proxy object which is used to execute async calls
 
+pending state --> fullfilled state
+pending state --> rejected state
+
+Synchronous function
+```
+    function doTask() {...}
+
+    let res = doTask(); // blocked
+
+```
+
+ASynchronous function
+```
+    function doTask() {... Promise API ...}
+
+    doTask().then(function resolveHandler(data) {
+
+    },
+    function rejectHandler(err) {
+
+    }
+    )
+
+    console.log("bye"); // not blocked ...
+    
+```
+
+6) async and await : syntatical sugar in top of Promise to avoid callback hell
+
+7) Clone
+
+var product = { "id": 34, "name": "iPhone 15", "price": 89000.00, "category": "mobile" };
+
+var ref = product; // refernece, points to same location
+ref.price = 99999;
+product.price will also be changed
+
+var copy = {...product}; // clone
+
+Part 2:
+
+var nos = [5,2,51, 33];
+
+var no_dup = [...nos];
+
+=========
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        Client app, wants to get Flights and Hotels concurrently
+
+        <script>
+            function getFlights() {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => resolve("Flights data"), 2500);
+                });
+            }
+
+            function getHotels() {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => resolve("Hotels data"), 1000);
+                });
+            }
+
+            console.time("Fetch operation");
+
+            Promise.any([getFlights(), getHotels()]).then(value => {
+                console.log(values[0]); // Flights
+                console.log(values[1]); // Hotels
+                console.timeEnd("Fetch operation");
+            });
+        </script>
+    </div>
+</body>
+
+</html>
