@@ -554,4 +554,14 @@ https://www.npmjs.com/
 
  import Product from './Product';
 
- 
+ npm run dev:
+ ```
+
+asset bundle.js 6.2 KiB [emitted] (name: main)
+runtime modules 670 bytes 3 modules
+cacheable modules 1.41 KiB
+  ./src/index.js 847 bytes [built] [code generated]
+  ./src/Person.js 237 bytes [built] [code generated]
+  ./src/lib.js 356 bytes [built] [code generated]
+
+  ```
