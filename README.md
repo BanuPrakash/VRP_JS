@@ -278,6 +278,7 @@ ES6+ version ===>  Babel / Tracuer  ===> ES5
 Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into backwards-compatible JavaScript code that can be run by older JavaScript engines.
 
 ES2015 / ES6 / JS6 features:
+
 1) arrow function [Syntax transform]
 2) template literal string [Syntax transform]
 `
@@ -402,5 +403,123 @@ var nos = [5,2,51, 33];
 
 var no_dup = [...nos];
 
-=========
+=====================
 
+NodeJS: platform which provides "V8" as JS engine, "libuv" for Asynchronous operations << instead of WebApi>>
+
+
+Why NodeJS?
+1) can build traditional web applications using JS like Servlet + JSP
+2) can build RESTful WS like what we did in Spring Boot MVC
+3) Excellent option for streaming API like Netflix / Hotstar
+4) ChatBot
+5) Building client side web applications
+
+
+Why NodeJS for Building client side web applications?
+1) we can write code in ES2015+, TypeScript, CoffeeScript, LiveScript, DART
+
+TypeScript: statically typed
+
+function add(x:number, y:number): number {
+    ....
+}
+
+add(4,6);
+
+add("A", "B"); // tsc throws error
+
+2) Unit Testing, E2E testing
+
+3) Minify, Uglify the code
+
+```
+function _m(elems, _t){var _r = [];elems.forEach(e => {results.push(_t_(e));});return results;}
+```
+
+4) bundle
+product.js
+customer.js
+order.js
+payment.js
+item.js
+
+
+index.html
+<script src="product.js"></script>
+<script src="customer.js"></script>
+<script src="product.js"></script>
+<script src="payment.js"></script>
+<script src="order.js"></script>
+
+in Production:
+<script src="bundle.js"></script>
+
+==============
+
+NodeJS by default understand CommonJS Module system
+
+1) IIFE is plain Vanilla module system
+2) CommonJS module system
+3) ESM ==> ES Module system
+4) System.module
+5) AMD ==> Asynchronous module system
+
+
+IIFE example:
+file.js
+
+```
+    var Shoppingmodule = (function() {
+        var data = [...]; //private
+        function add(x) { // public
+            validate();
+            ..
+        }
+
+        function getAll() { // public
+            ...
+        }
+
+        function validate() { // private
+
+        }
+        return {
+            add, getAll
+        }
+    })();
+
+
+    var customerModule = (function() {
+        var data = [...];
+        function add(c) {
+            ..
+        }
+
+        return {
+            add
+        }
+    })();
+
+    Shoppingmodule.add(...);
+    customerModule.add(...);
+```
+npm / yarn / pnpm / Rush / lerna
+
+1) Initialize the project:
+npm init --y
+
+2) install JEST
+npm i jest -D
+
+-D only requred for development
+
+JS unit testing libraries:
+Jasmine, Mocha, JEST
+
+=====
+
+AAA ==> Assemble Action Assert
+
+Assert ==> Jasmine, Mocha, JEST or we can use 3rd party assertion libraries
+[Chai.js](https://www.chaijs.com/)
