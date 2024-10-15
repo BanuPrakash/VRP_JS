@@ -44,19 +44,21 @@ let ProductCard = <div className="card">
 console.log(ProductCard);
 
 function render(reactElement, container) {
-
+    let domElement = document.createElement(reactElement.tag);
     if (['string', 'number'].includes(typeof reactElement)) {
         let txtNode = document.createTextNode(reactElement);
         console.log(txtNode);
-        render(txtNode, container);
-        return;
+        render(txtNode, domElement);
+        container.appendChild(txtNode);
+         return;
     }
-    let domElement = document.createElement(reactElement.tag);
+   
     if (reactElement.props) {
         if (reactElement.props.children) {
             reactElement.props.children.forEach(child => render(child, domElement))
         }
     }
+    console.log(container);
     container.appendChild(domElement);
 }
 
