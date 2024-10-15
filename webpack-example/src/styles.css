@@ -2,3 +2,7 @@ body {
     background-color: antiquewhite;
     color: burlywood;
 }
+
+.card {
+    width: 250px;
+}

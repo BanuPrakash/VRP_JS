@@ -36,7 +36,7 @@ let React = {
 let product = products[0];
 
 // XML and JS interpolation
-let ProductCard = <div className="card">
+let ProductCard = <div className="card" >
     <div className="card-header">{product.name}</div>
     <p>{product.category}, Rs. ${product.price}</p>
 </div>
@@ -52,8 +52,14 @@ function render(reactElement, container) {
         container.appendChild(txtNode);
          return;
     }
-   
+    
     if (reactElement.props) {
+        if(reactElement.props.props) {
+        Object.keys(reactElement.props.props).filter(prop => !prop.children).forEach(p => {
+            domElement[p] = reactElement.props.props[p];
+        })
+    }
+       
         if (reactElement.props.children) {
             reactElement.props.children.forEach(child => render(child, domElement))
         }
