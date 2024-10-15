@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        .del {
+            background-color: blueviolet;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <h1>Users</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>phone</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+    <script>
+        var tbody = document.getElementById("tb");
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json()).then(users => {
+                users.forEach(user => {
+                    var row = document.createElement("tr");
+                    var td = document.createElement("td");
+                    var txt = document.createTextNode(user.name);
+                    td.appendChild(txt);
+                    row.appendChild(td);
+
+                    td = document.createElement("td");
+                    txt = document.createTextNode(user.email);
+                    td.appendChild(txt);
+                    row.appendChild(td);
+
+                    td = document.createElement("td");
+                    txt = document.createTextNode(user.phone);
+                    td.appendChild(txt);
+                    row.appendChild(td);
+                    tbody.appendChild(row);
+
+                    td = document.createElement("td");
+                    btn = document.createElement("button");
+                    btn.setAttribute("class", "del");
+                    btn.textContent = "Delete";
+                    btn.addEventListener("click", doDelete)
+                    td.appendChild(btn);
+                    row.appendChild(td);
+                    tbody.appendChild(row);
+                });
+            });
+            function doDelete(evt) {
+                // console.log(evt.target);
+                evt.target.parentNode.parentNode.remove()
+            }
+          //  document.querySelectorAll(".del")
+            //    .forEach(elem => elem.addEventListener("click", doDelete));
+
+    </script>
+</body>
+</html>

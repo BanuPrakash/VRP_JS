@@ -565,3 +565,64 @@ cacheable modules 1.41 KiB
   ./src/lib.js 356 bytes [built] [code generated]
 
   ```
+
+  Posts and Users ==> Flights and Hotels
+===============================================
+
+.babelrc
+babel.config.js
+babel.config.json
+
+webpack-example % npm i css-loader style-loader html-webpack-plugin webpack-dev-server -D
+
+====
+css-loader style-loader
+
+css-loader allows us to import "css" files in JS files.
+
+index.js
+import "styles.css"
+
+style-loader
+<style>
+</style>
+
+=======
+html-webpack-plugin
+The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
+
+<script src="public/bundle.b633405f.js"></script> 
+
+FCP --> Web Vitals
+First Contentful Paint
+
+==========================
+
+DOM: Document Object model --> interface to access tree of objects built using XML / HTML
+
+DOM interface : Different language VBScript / JavaScript / Java / ...
+
+Using DOM:
+1) we can create elements dynamically
+2) can access elements
+3) traverse thro elements
+4) add event handling to these elements
+
+access elements:
+<button id="btn">OK</button>
+
+document.getElementById("btn");
+document.getElementsByTagName("div"); // array of elements
+<input type="text" placeholder="search by name" />
+
+document.querySelector("input[placeholder='search by name'");
+
+document.querySelectorAll("div");
+
+document.querySelector('.tmpl-headerNavItem_label').innerHTML = "Banu Prakash"
+
+
+Event Handling:
+Source : any DOM element
+Listener: a function
+Event: object propagated from Source to listener, which contains detalis like "type of event", target, "x" and "y" position, other details like left button, right button

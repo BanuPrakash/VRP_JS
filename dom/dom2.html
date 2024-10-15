@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Value 1: <input type="text" id="v1" /> <br />
+        Value 2: <input type="text" id="v2" /> <br />
+        <button type="button" id="add">Add</button>
+        <button type="button" id="sub">Subtract</button> <br />
+        <div id="result"></div>
+    </form>
+    <script>
+        var t1 = document.getElementById("v1");
+        var t2 = document.getElementById("v2");
+        document.getElementById("add").addEventListener("click", () => {
+            document.getElementById("result").innerText  = parseFloat(t1.value) + parseFloat(t2.value);
+        });
+        document.getElementById("sub").addEventListener("click", () => {
+            document.getElementById("result").innerText  = parseFloat(t1.value) - parseFloat(t2.value);
+        });
+    </script>
+</body>
+</html>
