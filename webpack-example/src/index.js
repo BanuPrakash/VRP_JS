@@ -26,3 +26,38 @@ var mobiles = filter(products, p => p.category === 'mobile');
 
 console.log(evens);
 console.log(mobiles);
+
+let React = {
+    createElement: (tag, props, ...children) => {
+        let reactElement = { tag, props: { props, children } };
+        return reactElement;
+    }
+}
+let product = products[0];
+
+// XML and JS interpolation
+let ProductCard = <div className="card">
+    <div className="card-header">{product.name}</div>
+    <p>{product.category}, Rs. ${product.price}</p>
+</div>
+
+console.log(ProductCard);
+
+function render(reactElement, container) {
+
+    if (['string', 'number'].includes(typeof reactElement)) {
+        let txtNode = document.createTextNode(reactElement);
+        console.log(txtNode);
+        render(txtNode, container);
+        return;
+    }
+    let domElement = document.createElement(reactElement.tag);
+    if (reactElement.props) {
+        if (reactElement.props.children) {
+            reactElement.props.children.forEach(child => render(child, domElement))
+        }
+    }
+    container.appendChild(domElement);
+}
+
+render(ProductCard, document.getElementById("root"));

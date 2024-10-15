@@ -626,3 +626,59 @@ Event Handling:
 Source : any DOM element
 Listener: a function
 Event: object propagated from Source to listener, which contains detalis like "type of event", target, "x" and "y" position, other details like left button, right button
+
+====================
+
+RESTful WS: --> produce JSON,
+
+we need to consume JSON --> Presentation page
+
+Mobile: Android, Swift, ...
+Web : DOM based... <<>>
+Tv: SmartTV [ Android, WebOS,..]
+Desktop : Proton, ...
+
+Client Side Web application development:
+1) DOM
+2) Libraries like jQuery
+docment.createElement("table");
+with jQuery --> $("<table />);
+
+document.getElementByTagName("div")
+with jQuery --> $("div");
+
+Event handling:
+$("#add").on("click", ( ) => {});
+
+3) Templates
+* Underscore
+* Mustache
+* Handlebar
+* Pug
+* Jade
+* EJS
+* Knockout
+...
+
+```
+<tr>
+    <td>{{firstName}} </td>
+    <td>{{lastName}} </td>
+</tr>
+```
+
+4) SPA: Single Page Application & RWD: Responsive Web Design
+Libraries and Frameworks based on MVC Architectural:
+4.1) Backbone library: provided Model and Controller support, view --> any of above templates
+4.2) AngularJS: by Google --> Framework
+4.3) ReactJS: by Facbook
+    XHP: XML in PHP code
+5) Angular : google --> Framework
+
+https://www.youtube.com/watch?v=8pDqJVdNa44&t=6s
+
+https://github.com/chentsulin/awesome-react-renderer
+
+React: JSX
+
+npm i @babel/preset-react -D
