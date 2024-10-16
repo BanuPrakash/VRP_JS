@@ -682,3 +682,124 @@ https://github.com/chentsulin/awesome-react-renderer
 React: JSX
 
 npm i @babel/preset-react -D
+
+========================================
+
+React
+
+JSX --- React.createElement() ---> JS Object <<potential DOM>> --> render() --> DOM element / Tv Element / Mobile element
+
+
+Core API of React is React.createElement()
+
+React node: are not real DOM nodes, but a representation of a potential DOM node. The representation is considered the Virtual DOM.
+
+ReactElement is an object with type and props.
+props --> attributes and children
+
+=============================
+Scaffolding code with all dependencies installed and webconfig configured internally
+* installs react library [React.createElement, ...]
+* installs react-dom library [render()]
+* webpack, babel, babel presets, babel-loader, ...
+
+command prompt> npx create-react-app customerapp 
+
+react-scripts: a wrapper for webpack commands.
+
+================================
+
+React Components:
+* React.createElement() <<Rarely we use this>>
+let SampleComp = React.createElement("h1", {"width": "50px"}, "Hello World");
+
+* functional component << Max used>>
+functional components returns JSX. returned JSX is passed on to React.createElement internally
+```
+function ProductCard({product}) {
+    return <div className="card" >
+            <div className="card-header">{product.name}</div>
+            <p>{product.category}, Rs. ${product.price}</p>
+    </div>
+}
+```
+* class component
+-> can have state and behaviour
+-> render() method returns a JSX
+```
+class ProductCard extends Component {
+    product; //state
+    doThis() { // behaviour
+
+    }
+    doThat() { // behaviour
+
+    }
+    render() { // return JSX
+         return <div className="card" >
+            <div className="card-header">{this.product.name}</div>
+            <p>{this.product.category}, Rs. ${this.product.price}</p>
+    </div>
+    }
+}
+```
+
+Thinking in React: https://react.dev/learn/thinking-in-react
+* Atoms:
+ Basic building blocks of matter, such as button, input, image, ...
+ They are not useful on their own
+* Molecules: Groping atoms together to build functionality
+* Organisms: Combining molecules together 
+* Templates: group of organisms 
+* Pages: collection of different templates like : search Tmplate, Results Template, Navbar template
+
+More the fine-grained better mangable and resulble components
+
+99% of the time Atoms are readily available and provided by different re-useable components provided by MUI /react-bootstrap/ adobe-spectrum/KendoUI/PrimeReact/ .... 
+we rarely bulid them. We can make use of DOM elements itself. <button type="button">OK</button>
+
+Few Molecules are readily available like table / card /...
+
+===============================
+
+Figma to React
+XSD to React
+https://www.locofy.ai/
+
+==============================
+Scripts:
+1)
+```
+"start": "react-scripts start",
+is same as 
+
+"start": "webpack serve --mode development",
+```
+
+2) 
+```
+ "build": "react-scripts build", is same as
+  "build": "webpack --mode development",
+```
+3) 
+```
+ "test": "react-scripts test",
+ same as
+  "test": "jest",
+```
+
+4) 
+```
+ "eject": "react-scripts eject"
+ ejects project which contains webpack.config.js
+ and all the low level configurations which are 
+ customizable
+ Note: Not reversable
+ ```
+
+Project is built using webpack where "index.js" is an entry point
+
+html-webpack-plugin
+
+index.js + App.js ==> bundle.js
+
