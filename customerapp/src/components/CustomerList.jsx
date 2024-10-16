@@ -15,12 +15,26 @@ export default class CustomerList extends Component {
             { "id": 6, "firstName": "Joey", "lastName": "Tribuanni", "gender": "female" }
         ]
     }
+
+    deleteCustomer(id) {
+        let custs = this.state.customers.filter(c => c.id !== id); // all customers except matching id
+
+        // update the state and re-render
+        this.setState({
+            "customers": custs
+        });
+
+        // avoid this because it doesn't reconcile <<re-rendering>> is not happening
+        //  this.state.customers = custs
+    }
+
     render() {
         return (
             <div>
                 <Filter />  <br />
                 {
-                    this.state.customers.map(cust => <CustomerRow customer={cust} />)
+                    this.state.customers.map(cust => <CustomerRow customer={cust}
+                        delEvent={this.deleteCustomer.bind(this)} />)
                 }
             </div>
         )
