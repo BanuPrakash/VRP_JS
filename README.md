@@ -866,3 +866,7 @@ Code Coverage ==> IstanbulJS
 
 npm test -- --coverage --watchAll 
 
+=================================
+
+E2E:
+npm i cypress -D

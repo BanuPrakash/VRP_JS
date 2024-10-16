@@ -33,7 +33,7 @@ export default class CustomerList extends Component {
         }, () => {
             console.log(this.state.customers); // callback gets called only after setState
         })
-    
+
     }
 
     deleteCustomer(id) {
