@@ -27,14 +27,17 @@ export default class CustomerList extends Component {
     filterCustomers(txt) {
         let custs = this.state.complete.filter(c => (c.lastName.toUpperCase().indexOf(txt.toUpperCase()) >= 0));
 
-        // update the state and re-render
+        // update the state and re-render, async non-blocking code function
         this.setState({
             "customers": custs
+        }, () => {
+            console.log(this.state.customers); // callback gets called only after setState
         })
+    
     }
 
     deleteCustomer(id) {
-        let custs = this.state.customers.filter(c => c.id !== id); // all customers except matching id
+        let custs = this.state.complete.filter(c => c.id !== id); // all customers except matching id
 
         // update the state and re-render
         this.setState({

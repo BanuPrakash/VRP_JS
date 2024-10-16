@@ -811,3 +811,50 @@ In simpler terms, it's React's way of ensuring that the user interface reflects 
 ```
 https://legacy.reactjs.org/docs/reconciliation.html
 
+=====================================
+
+Class Component Life Cycle methods:
+1) Mounting phase
+constructor() --> render() --> componentDidMount()
+Any API call needs to be done in componentDidMount() and not in constructor()
+first render() should happen with all default values, else it leads to FCP issue.
+
+componentDidMount() --> update the state with the result of API call.
+that leads to reconcillation
+
+Example: youtube intializes empty 20 videos and 20 rectangle placeholders are created
+then API call happens with the result from API call, we start seeing actual videos
+
+2) Updating Phase
+whenever state changes / props changes this phase happens
+```
+shouldComponentMount() --> true --> render() --> componentDidUpdate()
+shouldComponentMount() --> false 
+```
+ componentDidUpdate() is where we make API calls << Pending to illustrate>>
+
+ 3) Unmounting Phase
+ componentWillUnmount() called before destroying the component
+ here unsubscribe, unregister, display Thank You / Do you want to really delete ...
+
+ ==============================
+
+ Testing:
+ * Unit Testing : Jasmine, Mocha and JEST
+ * Integration Testing
+ * E2E Testing
+
+RTL: React Testing Library is built on top of JEST for Unit and Integration testing
+E2E Testing: Selenium, Cypress, ...
+
+screen.getByRole('button'); // first button
+screen.getAllByRole('button'); // get all buttons
+
+<input type='text' placeholder='search by name' />
+screen.getByPlaceholderText('search by name');
+
+<h1> Customer Application </h1>
+
+screen.getByText(/customer application/i);
+
+On top of it we can also use low level DOM accessors, getElementById, querySelector()...
