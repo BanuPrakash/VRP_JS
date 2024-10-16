@@ -16,12 +16,30 @@ export default class CustomerList extends Component {
         ]
     }
 
+    // making one more copy of customers
+    // componentDidMount is a life-cycle method
+    componentDidMount() {
+        this.setState({
+            "complete": this.state.customers
+        })
+    }
+
+    filterCustomers(txt) {
+        let custs = this.state.complete.filter(c => (c.lastName.toUpperCase().indexOf(txt.toUpperCase()) >= 0));
+
+        // update the state and re-render
+        this.setState({
+            "customers": custs
+        })
+    }
+
     deleteCustomer(id) {
         let custs = this.state.customers.filter(c => c.id !== id); // all customers except matching id
 
         // update the state and re-render
         this.setState({
-            "customers": custs
+            "customers": custs,
+            "complete": custs
         });
 
         // avoid this because it doesn't reconcile <<re-rendering>> is not happening
@@ -31,9 +49,10 @@ export default class CustomerList extends Component {
     render() {
         return (
             <div>
-                <Filter />  <br />
+                <Filter filterEvent={this.filterCustomers.bind(this)} />  <br />
                 {
                     this.state.customers.map(cust => <CustomerRow customer={cust}
+                        key={cust.id}
                         delEvent={this.deleteCustomer.bind(this)} />)
                 }
             </div>

@@ -804,5 +804,10 @@ html-webpack-plugin
 index.js + App.js ==> bundle.js
 
 ===========
+```
+Reconciliation in React refers to the process of updating the DOM (Document Object Model) to match the most recent virtual representation of a component's UI. 
 
+In simpler terms, it's React's way of ensuring that the user interface reflects the current application state accurately.
+```
+https://legacy.reactjs.org/docs/reconciliation.html
 
