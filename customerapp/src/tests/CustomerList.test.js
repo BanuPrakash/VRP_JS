@@ -24,5 +24,13 @@ describe("testing <CustomerList />", () => {
         fireEvent.click(btns[3]);
         btns = screen.getAllByRole('button');
         expect(btns.length).toBe(5);
+    });
+
+    it("filter customers", () => {
+        render(<CustomerList />);
+        let txtbox = screen.getByPlaceholderText('search by name');
+        fireEvent.change(txtbox, { "target": { "value": "Geller" } });
+        let btns = screen.getAllByRole('button');
+        expect(btns.length).toBe(2);
     })
 });

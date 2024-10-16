@@ -858,3 +858,11 @@ screen.getByPlaceholderText('search by name');
 screen.getByText(/customer application/i);
 
 On top of it we can also use low level DOM accessors, getElementById, querySelector()...
+
+====
+How much of Code is tested?
+
+Code Coverage ==> IstanbulJS
+
+npm test -- --coverage --watchAll 
+
