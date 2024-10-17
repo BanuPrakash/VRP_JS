@@ -902,5 +902,18 @@ this.setState({
 
 ```
 
+memo [HOC] code looks like :
+```
+function memo(component) {
+    let cacheProps = {};
+    // store to cache
+    if(cacheProps["age"] === props.age) {
+        return;
+    }
+     else {
+        return component(props);
+     }
+}
+```
 
-
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
