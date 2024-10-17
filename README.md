@@ -870,3 +870,37 @@ npm test -- --coverage --watchAll
 
 E2E:
 npm i cypress -D
+
+===========================================
+
+React 18+ version << current version>>
+Recap:
+React Components
+* React.createElement()
+* functional component [upto version React 16.8, functional components can't have state and behaviour]
+* class component [ can have state and behaviour]
+
+Rules for Class Component
+* extends Component
+* state variables has to be set as "state" data structure
+
+```
+state = {
+    name : "Raj",
+    age: 34,
+    email : "raj@visa.com",
+    skills: ["react", "Spring", "AWS"]
+}
+
+
+let newSkills = this.state.skills;
+newSkills.push("Azure");
+
+this.setState({
+    skills: newSkills
+});
+
+```
+
+
+
