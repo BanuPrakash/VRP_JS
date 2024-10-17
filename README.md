@@ -917,3 +917,42 @@ function memo(component) {
 ```
 
 Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+* useState
+* useEffect
+* useReducer
+* useContext
+* useMemo
+... many more...
+
+useEffect: is similar to life-cycle methods of class components
+
+// componentDidMount
+useEffect(() => {
+    // called only once
+    // place where API calls has to happen
+},[]);
+
+// componentDidUpdate
+useEffect(() => {
+    // called whenever any state change
+});
+
+
+// componentDidUpdate
+useEffect(() => {
+    // called whenever age changes
+    // dependend API call
+}, [age]);
+
+// componentDidMount
+useEffect(() => {
+    // called only once
+    return () => { // code for componentWillUnmount}
+},[]);
+
+<div className="col-sm-12 col-md-6 col-lg-4">
+    <img src=".." >
+</div>
+

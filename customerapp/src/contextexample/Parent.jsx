@@ -17,6 +17,7 @@ export default class Parent extends Component {
     }
 }
 
+// <UserContext.Provider value={{...this.state}}>
 // <Parent>
 //     <A />
 //     <B />
