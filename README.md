@@ -927,7 +927,7 @@ Hooks are a new addition in React 16.8. They let you use state and other React f
 ... many more...
 
 useEffect: is similar to life-cycle methods of class components
-
+```
 // componentDidMount
 useEffect(() => {
     // called only once
@@ -951,8 +951,45 @@ useEffect(() => {
     // called only once
     return () => { // code for componentWillUnmount}
 },[]);
+```
+===============
 
-<div className="col-sm-12 col-md-6 col-lg-4">
-    <img src=".." >
-</div>
+ useReducer: hook should be used instead of useState when
+ * we need conditional mutation of state
+ * state mutation depends on previous state
+
+ state:
+ {
+    cartItems: [],
+    total: 0,
+    count: 0
+ }
+
+------------------------
+
+Action:
+```
+{
+    type: 'ADD_TO_CART',
+    payload: {...}
+}
+
+{
+    type: 'REMOVE_FROM_CART',
+    payload: 8
+}
+
+{
+    type: 'CLEAR_CART'
+}
+
+{
+    type: 'INCREMENT',
+    payload: 1
+}
+```
+
+Reducer function: (state, action) => newState
+
+
 

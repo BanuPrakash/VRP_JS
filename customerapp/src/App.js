@@ -7,6 +7,7 @@ import ParentComponent from './example/ParentComponent';
 import DemoState from './hooks/DemoState';
 import UserDetails from './hooks/UserDetails';
 import UsersComponent from './hooks/UsersComponent';
+import CounterComponent from './reducerexample/CounterComponent';
 
 function App() {
   let [uid, setUid] = useState(1);
@@ -28,6 +29,7 @@ function App() {
       </div>
      </div>
     
+    <CounterComponent />
     </div>
   );
 }
