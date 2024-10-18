@@ -1055,3 +1055,17 @@ Task: https://dummyjson.com/recipes
 
 new_folder> 
 npm i @fortawesome/react-fontawesome  @fortawesome/free-solid-svg-icons
+
+cart state:
+
+```
+{
+    cartItems: [],
+    total: 0,
+    quantity: 0
+}
+
+```
+
+Action types: 
+ADD_TO_CART, INCREMENT, DECREMENT, CLEAR_CART
