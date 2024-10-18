@@ -991,5 +991,57 @@ Action:
 
 Reducer function: (state, action) => newState
 
+=================================================
 
+built a Shopping Application:
+dependencies:
+1) bootstrap : css framework
+2) react-bootstrap: library which contains atoms and molecules built using bootstrap like "button", "card", "navbar"
+3) axios: to make API call instead of fetch. axios has better APIs compared to fetch for invoking RESTful endpoints.
+4) react-router-dom:for SPA [only one index.html] --> is for Web application
+Different URLs has to display different views
+http://amazon.com --> displays landing page
+http://amazon.com/mobiles --> display only mobiles
+http://amazon.com/tvs --> display only tvs
+http://amazon.com/cart --> show the cart
+...
+https://ionicframework.com/docs/
 
+5) FontAwesome : icons 
+
+Urls for the application:
+http://localhost:3000 ==> landing page
+http://localhost:3000/products --> display products
+http://localhost:3000/cart --> display cart items
+http://localhost:3000/details/3 --> display details of product with id "3"
+http://localhost:3000/new_product --> ProductForm
+http://localhost:3000/acsfd --> Default
+
+Components required:
+1) ProductList.jsx
+2) ProductCard.jsx
+3) NavbarComponent.jsx
+4) Cart.jsx
+5) CartList.jsx
+6) Default.jsx
+7) Details.jsx
+8) ProductForm.jsx
+
+==========================================
+
+npx create-react-app shopapp
+
+for Mac users:
+create a folder, copy everything except "node_modules" from "shopapp" into the new folder
+new_folder> npm i
+
+new_folder> npm i react-router-dom
+new_folder> npm i bootstrap react-bootstrap
+
+in index.js:
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+https://react-bootstrap.netlify.app/
+
+href==> Server Side Routing --> Make API call to Server
+Link ==> Client side Routing --> to use Route configured.
