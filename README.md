@@ -1076,4 +1076,88 @@ ADD_TO_CART, INCREMENT, DECREMENT, CLEAR_CART
  json-server uses a file <<data.json>> as datastore and endpoints
  we can perform CRUD operations on data.json
  
- window.sessionStorage.setItem("user", "banu@gmail.com")
+ done by login:
+ window.sessionStorage.setItem("user", "banu@gmail.com");
+
+ ====
+
+ Task:
+ https://opentdb.com/api.php?amount=10
+
+ "correct_answer": "Sierra Leone",
+"incorrect_answers": [
+"Liberia",
+"Burkina Faso",
+"Central African Republic"
+]
+
+should become options:
+options: [...incorrect_answers, correct_answer]
+
+read all the questions from  https://opentdb.com/api.php?amount=10
+and store them in Context
+
+
+```
+import React, { createContext, useContext, useState } from 'react';
+
+const QuestionContext = createContext();
+
+const QuestionProvider = ({ children }) => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+  const handleAnswerSelect = (answer) => {
+    setSelectedAnswer(answer);
+  };
+
+  const nextQuestion = () => {
+    setCurrentQuestion((prev) => prev + 1);
+    setSelectedAnswer(null);
+  };
+
+  const contextValue = {
+    currentQuestion,
+    selectedAnswer,
+    handleAnswerSelect,
+    nextQuestion,
+  };
+
+  return (
+    <QuestionContext.Provider value={contextValue}>
+      {children}
+    </QuestionContext.Provider>
+  );
+};
+
+const QuestionComponent = () => {
+  const { currentQuestion, selectedAnswer, handleAnswerSelect, nextQuestion } = useContext(QuestionContext);
+  const questions = [
+    { question: 'What is the capital of France?', options: ['Paris', 'Berlin', 'London'] },
+    // Add more questions here
+  ];
+
+  const question = questions[currentQuestion];
+
+  return (
+    <div>
+      <h2>{question.question}</h2>
+      {question.options.map((option, index) => (
+        <button key={index} onClick={() => handleAnswerSelect(option)}>
+          {option}
+        </button>
+      ))}
+      {selectedAnswer && <button onClick={nextQuestion}>Next</button>}
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <QuestionProvider>
+      <QuestionComponent />
+    </QuestionProvider>
+  );
+};
+
+```
