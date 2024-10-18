@@ -1076,3 +1076,4 @@ ADD_TO_CART, INCREMENT, DECREMENT, CLEAR_CART
  json-server uses a file <<data.json>> as datastore and endpoints
  we can perform CRUD operations on data.json
  
+ window.sessionStorage.setItem("user", "banu@gmail.com")
