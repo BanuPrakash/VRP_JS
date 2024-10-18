@@ -2,8 +2,8 @@
 state
 {
     cartItems: [],
-    total: 0,
-    quantity: 0
+    total: 0, // used in Cart.jsx
+    quantity: 0 // used in Navbar
 }
 */
 
@@ -13,6 +13,9 @@ export default function cartReducer(state, action) {
         // dispatch({type:'ADD_TO_CART', payload: product})
         case 'ADD_TO_CART':
             let { id, title, price, image } = action.payload;
+            if(state.cartItems.filter(p => p.id === action.payload.id).length != 0) {
+                return state;
+            }
             let lineItem = {
                 id,
                 title,

@@ -1069,3 +1069,10 @@ cart state:
 
 Action types: 
 ADD_TO_CART, INCREMENT, DECREMENT, CLEAR_CART
+====
+
+ npx json-server --watch data.json --port 1234
+
+ json-server uses a file <<data.json>> as datastore and endpoints
+ we can perform CRUD operations on data.json
+ 
