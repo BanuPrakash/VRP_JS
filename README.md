@@ -1049,3 +1049,9 @@ Link ==> Client side Routing --> to use Route configured.
 
 new_folder> npm i axios
 
+Task: https://dummyjson.com/recipes
+
+==========
+
+new_folder> 
+npm i @fortawesome/react-fontawesome  @fortawesome/free-solid-svg-icons
