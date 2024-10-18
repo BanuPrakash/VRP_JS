@@ -1045,3 +1045,7 @@ https://react-bootstrap.netlify.app/
 
 href==> Server Side Routing --> Make API call to Server
 Link ==> Client side Routing --> to use Route configured.
+
+
+new_folder> npm i axios
+
