@@ -1094,6 +1094,8 @@ ADD_TO_CART, INCREMENT, DECREMENT, CLEAR_CART
 should become options:
 options: [...incorrect_answers, correct_answer]
 
+https://www.geeksforgeeks.org/underscore-js-_-shuffle-function/
+
 read all the questions from  https://opentdb.com/api.php?amount=10
 and store them in Context
 
