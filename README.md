@@ -1305,3 +1305,43 @@ useParams() is to read the PathVariable.
 2) http://localhost:3000/products?page=1&size=20
 
 useSearchParams() is to read Request Paramrams
+
+========================================
+
+React 17 Rendering:
+```
+import ReactDOM from 'react-dom';
+ReactDOM.render(
+    <BrowserRouter>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </BrowserRouter>
+)
+
+ReactDOM.render is no longer supported in React 18. Use createRoot instead.
+```
+
+React 18 Rendering:
+
+```
+import ReactDOM from 'react-dom/client';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+  <BrowserRouter>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </BrowserRouter>
+);
+
+```
+
+React 18 uses Concurrency for rendering, it's based on Fiber Architecture.
+Where as upto React 17 it  was Stack Architecture.
+
+https://claudiopro.github.io/react-fiber-vs-stack-demo/
+
+========================
+
