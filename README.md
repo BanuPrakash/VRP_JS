@@ -1234,3 +1234,57 @@ https://spring.io/guides/gs/rest-service-cors
 @CrossOrigin(origins = "http://localhost:3000")
 or
 @CrossOrigin(origins = "*")
+
+====================================================
+
+```
+https://opentdb.com/api.php?amount=10
+questions.json
+
+{
+"results" [
+    {
+    "user" : "banu@gmail.com",
+    "score" : 76,
+    "total": 100
+    }
+]
+"questions" : [
+    {
+        "question": "If soccer is called football in England, what is American football called in England?",
+        "correct_answer": "American football",
+        "incorrect_answers": [
+            "Combball",
+            "American football"
+            "Handball",
+            "Touchdown"
+        ]
+    },
+...
+]
+
+npx json-server --watch questions.json --port 3456
+```
+https://www.classmarker.com/online-test/start/?quiz=xg6670fab6e3da53
+
+```
+
+export default function Questions() {
+    let [questions, setQuestions] = useState([]);
+    useEffect(() => {
+        axios.get("https://opentdb.com/api.php?amount=10")
+            .then(response => {
+                setQuestions(response.data.results)
+            })
+    }, []);
+    
+    return (
+        <div>
+            {
+                questions && questions.map((q, index) => <div key={index}> {q.question} </div>)
+            }
+        </div>
+    )
+}
+
+```
