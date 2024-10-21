@@ -1345,3 +1345,41 @@ https://claudiopro.github.io/react-fiber-vs-stack-demo/
 
 ========================
 
+MCQ Task:
+
+steps:
+1) npx create-react-app mcqapp
+2) create data.json
+```
+{
+    "results": [],
+    "questions" : [
+    {
+        "question": "If soccer is called football in England, what is American football called in England?",
+        "correct_answer": "American football",
+        "incorrect_answers": [
+            "Combball",
+            "American football"
+            "Handball",
+            "Touchdown"
+        ]
+    },...
+}
+```
+npx json-server --watch data.json --port 1234
+
+3) Create a QuestionContext << React Context>>
+```
+{
+    "questions" : data pulled from http://localhost:1234/questions,
+    "currentQuestionIndex": 1,
+    "currentQuestion" : question for the currentQuestionIndex,
+    "total": 10 total number of questions
+    "answered": 3,
+    "correctAnswers": 2,
+    "getNextQuestion": fn,
+    "answerQuestion": fn,
+    ...
+}
+```
+each time you click next of prev currentQuestionIndex increments or decrements
