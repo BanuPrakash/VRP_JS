@@ -1308,7 +1308,7 @@ useSearchParams() is to read Request Paramrams
 
 ========================================
 
-React 17 Rendering:
+React 17 Rendering: <<STACK>>
 ```
 import ReactDOM from 'react-dom';
 ReactDOM.render(
@@ -1322,7 +1322,7 @@ ReactDOM.render(
 ReactDOM.render is no longer supported in React 18. Use createRoot instead.
 ```
 
-React 18 Rendering:
+React 18 Rendering: <<FIBER>>
 
 ```
 import ReactDOM from 'react-dom/client';
