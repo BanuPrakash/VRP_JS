@@ -7,6 +7,7 @@ import ProductForm from './components/ProductForm';
 import Details from './components/Details';
 import Default from './components/Default';
 import Questions from './components/Questions';
+import SearchParams from './components/SearchParams';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/new_product' element={<ProductForm />} />
         <Route path='/details/:id' element={<Details />} />
-
+        <Route path='/paginate' element={<SearchParams />} />
         <Route path='/questions' element={<Questions />} />
         <Route path='/' element={<ProductList />} />
         <Route path='*' element={<Default />} />

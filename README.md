@@ -1288,3 +1288,20 @@ export default function Questions() {
 }
 
 ```
+
+Handling Form data in react:
+1) Controlled Component
+2) Uncontrolled Component
+
+```
+Controlled components rely on React state to manage the form data, 
+while uncontrolled components use the DOM itself to handle form data.
+```
+
+1) http://localhost:3000/details/4
+
+useParams() is to read the PathVariable.
+
+2) http://localhost:3000/products?page=1&size=20
+
+useSearchParams() is to read Request Paramrams
