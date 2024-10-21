@@ -1352,7 +1352,11 @@ steps:
 2) create data.json
 ```
 {
-    "results": [],
+    "results": [{
+        "user": "sam@visa.com",
+         "score" : 8,
+         "max": 10
+    }],
     "questions" : [
     {
         "question": "If soccer is called football in England, what is American football called in England?",
