@@ -1227,3 +1227,10 @@ becomes in react-bootstrap:
 "@fortawesome/react-fontawesome" provided react components for fontawesome icons.
 
 ===================================================
+in Spring boot RestController:
+https://spring.io/guides/gs/rest-service-cors
+
+
+@CrossOrigin(origins = "http://localhost:3000")
+or
+@CrossOrigin(origins = "*")
