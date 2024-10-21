@@ -1163,3 +1163,67 @@ const App = () => {
 };
 
 ```
+
+Handling Special characters:
+```
+question = question.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+question = question.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+question = question.replace(/&quot;/g, '"')
+question = question.replace(/&#039;/g, "'")
+
+```
+Application so far...
+Recap:
+
+1) json-server: fake RESTApis
+create a "json" file which acts like a data store and endpoints
+
+npx json-server -watch <<json file>> --port <<port number>>
+This starts our RESTful Web Server
+Example:
+npx json-server --watch data.json --port 1234 
+
+2) react-router-dom
+* different URLs different elements can be rendered
+* Client side routing
+use Link instead of href
+* Lazy loading of components << yet to be explained>>
+
+3) React Context
+central placeholder for data ==> State management
+* Provider ==> places the data in Context
+* Consumer ==> gets data from Context [useContext]
+* used to avoid props progation thro a lot of intermediary components.
+
+4) Reducers
+* use useReducer() instead of useState() if
+a) mutation is conditional << based on action type>>
+b) mutation depends on previous state
+c) uses a reducer function : (state, action) => return new state <<which is update internally>>
+
+5) bootstrap is a css framework, alternatively we could have used TailsWind, Bulma, Zurb,..
+
+6) react-boostrap: creates a react component using "bootstrap" css
+provides atoms like: image, button,,
+provides molecules like : card, navbar, ...
+
+Alternatively we could use MUI: Material UI.
+https://mui.com/material-ui/getting-started/installation/
+
+
+Example:
+in boostrap:
+```
+<div class="container"></div>
+<div class="nav"></div>
+```
+becomes in react-bootstrap:
+```
+    <Container></Container>
+    <Nav> </Nav>
+```
+
+7) fontawesome: library for icons
+"@fortawesome/react-fontawesome" provided react components for fontawesome icons.
+
+===================================================
