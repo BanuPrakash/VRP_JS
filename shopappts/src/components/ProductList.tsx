@@ -8,7 +8,7 @@ export default function ProductList() {
 
   // componentDidMount
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products?limit=5").then(response => {
+    axios.get<Product[]>("https://fakestoreapi.com/products?limit=5").then(response => {
    // axios.get("http://localhost:1234/products").then(response => {
       setProducts(response.data);
     })
