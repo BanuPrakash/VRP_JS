@@ -1,5 +1,5 @@
-import React, { createContext, useReducer } from 'react'
-import cartReducer from '../reducers/cartReducer';
+import React, { createContext, Reducer, useReducer } from 'react'
+import cartReducer, { ActionType, CartReducerState } from '../reducers/cartReducer';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import CartItem from '../model/CartItem';
@@ -24,7 +24,7 @@ export const CartContext = createContext<CartContextType>({
     clearCart: () => { }
 });
 
-const initialState = {
+const initialState:CartReducerState = {
     cartItems: [],
     total: 0,
     quantity: 0
@@ -36,14 +36,16 @@ type AppProps = {
 // Reactnode can be string, number, null, react element, array of react element
 
 export default function CartProvider(props: AppProps) {
+    // let [state, dispatch] = useReducer<Reducer<CartReducerState, ActionType>>(cartReducer, initialState);
     let [state, dispatch] = useReducer(cartReducer, initialState);
+   
     let navigate = useNavigate();
 
     function addToCart(product: Product) {
         dispatch({ type: 'ADD_TO_CART', payload: product })
     }
 
-    function increment(id) {
+    function increment(id:number) {
         dispatch({ type: 'INCREMENT', payload: id })
     }
 

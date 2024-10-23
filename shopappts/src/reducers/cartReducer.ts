@@ -10,13 +10,14 @@ state
 import CartItem from "../model/CartItem";
 import { Product } from "../model/Product";
 
-type  CartReducerState =  {
+export interface   CartReducerState  {
     cartItems: CartItem[],
     total: number,
     quantity: number
 }
 
-type ActionType = {
+
+export type ActionType = {
     type:'ADD_TO_CART',
     payload: Product
 } |

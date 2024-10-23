@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { Product } from '../model/Product';
+import { CartContext } from '../context/CartProvider';
 
 type AppProps = {
     product: Product,
@@ -12,7 +13,7 @@ type AppProps = {
 
 export default function ProductCard({ product }: AppProps) {
     let { id, title, price, image, description } = product;
-
+    let { addToCart } = useContext(CartContext);
     return (
         <div className='col-md-4'>
             <Card style={{ width: '18rem', height: '50rem', margin: '5px' }}>
@@ -30,7 +31,7 @@ export default function ProductCard({ product }: AppProps) {
                         Rs. {price} &nbsp;
                     </span>
                     <span className='right px-2'>
-                        <Button variant='success'>Add</Button>
+                        <Button variant='success' onClick={() => addToCart(product)}>Add</Button>
                     </span>
 
                 </Card.Footer>

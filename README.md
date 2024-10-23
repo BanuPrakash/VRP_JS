@@ -1666,3 +1666,7 @@ npx create-react-app shopappts --template typescript
 
 shopappts % npm i bootstrap react-bootstrap axios react-router-dom 
 shopappts % npm i @types/react-bootstrap @types/axios @types/react-router-dom -D
+
+Complete Cart.jsx and CartList.jsx
+
+===
