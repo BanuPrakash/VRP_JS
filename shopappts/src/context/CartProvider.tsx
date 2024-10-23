@@ -24,7 +24,7 @@ export const CartContext = createContext<CartContextType>({
     clearCart: () => { }
 });
 
-const initialState:CartReducerState = {
+const initialState: CartReducerState = {
     cartItems: [],
     total: 0,
     quantity: 0
@@ -38,14 +38,14 @@ type AppProps = {
 export default function CartProvider(props: AppProps) {
     // let [state, dispatch] = useReducer<Reducer<CartReducerState, ActionType>>(cartReducer, initialState);
     let [state, dispatch] = useReducer(cartReducer, initialState);
-   
+
     let navigate = useNavigate();
 
     function addToCart(product: Product) {
         dispatch({ type: 'ADD_TO_CART', payload: product })
     }
 
-    function increment(id:number) {
+    function increment(id: number) {
         dispatch({ type: 'INCREMENT', payload: id })
     }
 
