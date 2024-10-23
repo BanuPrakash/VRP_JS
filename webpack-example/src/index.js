@@ -1,6 +1,6 @@
 import Person from "./Person";
 
-import add, { filter } from './lib';
+import add, { filter } from './lib'; //ts-loader
 
 // css-loader
 import "./styles.css"
@@ -8,7 +8,8 @@ import "./styles.css"
 let p = new Person("Emma", 32);
 console.log(p.getName(), p.getAge());
 let p2 = new Person("Emma", 32);
-console.log(p2.getName(), p2.getAge());
+console.log(p2.name, p2.getAge());
+
 var products = [
     { "id": 34, "name": "iPhone 15", "price": 89000.00, "category": "mobile" },
     { "id": 88, "name": "Sony Bravia", "price": 289000.00, "category": "tv" },

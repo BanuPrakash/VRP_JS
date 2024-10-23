@@ -35,7 +35,6 @@ var mobiles: Product[] = filter(products, p => p.category === 'mobile');
 console.log(evens);
 console.log(mobiles);
 
-
 //function filter<T>(elems:T[], predicate:(elem:T) => boolean):T[] {
 function map<T, R>(elems: T[], transformFn: (elem: T) => R): R[] {
     var results: R[] = [];

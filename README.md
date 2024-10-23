@@ -1623,8 +1623,13 @@ tsconfig.json
   "outDir": "./dist",   
 
 package.json:
-
- "compile": "tsc",
+"compile": "tsc",
 npm run compile
-or
+OR
 tscode% tsc
+
+==============
+
+webpack-example% npm i ts-loader typescript -D
+webpack-example%  tsc --init
+

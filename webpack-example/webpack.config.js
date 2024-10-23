@@ -10,7 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, "public"),
         filename: "bundle.[contenthash:8].js"
     },
-  
+
     target: ['web', 'es5'],
     module: {
         rules: [
@@ -23,7 +23,7 @@ module.exports = {
                 use: "ts-loader"
             },
             {
-                test :/\.css$/,
+                test: /\.css$/,
                 use: ["style-loader", "css-loader"]
             }
         ]
@@ -33,6 +33,9 @@ module.exports = {
             template: path.resolve(__dirname) + "/public/index.html"
         }
     )],
+    resolve: {
+        extensions: ['.tsx', '.ts', '.jsx', '.js']
+    },
     devServer: {
         port: 1234
     }
