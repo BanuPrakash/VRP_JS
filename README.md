@@ -1610,3 +1610,21 @@ tscode> npm i typescript -D
 this installs typesystem and tsc
 tsc ./src/anyExample.ts 
 node ./src/anyExample.js
+
+npm i typescript -g 
+
+=============
+"init": "tsc --init"
+npm run init
+
+tscode% tsc --init
+tsconfig.json
+     "rootDir": "./src",  
+  "outDir": "./dist",   
+
+package.json:
+
+ "compile": "tsc",
+npm run compile
+or
+tscode% tsc
