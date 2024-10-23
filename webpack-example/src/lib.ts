@@ -1,3 +1,7 @@
+import {shuffle} from 'underscore';
+
+console.log(shuffle([1, 2, 3, 4, 5, 6]));
+
 const add = (x: number, y: number) => x + y;
 export default add;
 

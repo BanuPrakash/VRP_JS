@@ -1633,3 +1633,36 @@ tscode% tsc
 webpack-example% npm i ts-loader typescript -D
 webpack-example%  tsc --init
 
+===============
+
+How to use JS in typescript?
+
+
+https://underscorejs.org
+underscore, react, react-dom --> all are JS libraries.
+We can't use them directly in TS files
+webpack-example % npm i underscore
+
+Solution 1:
+write typings.d.ts
+and give prototypes of functions using data types
+
+Solution 2:
+use typings provided by DefinitelyTyped
+https://github.com/DefinitelyTyped/
+
+npm i @types/node -D
+npm i @types/react -D
+npm i @types/underscore -D
+=====================
+
+underscore and lodash provides lots of utility functions for JS.
+
+======================
+
+Task: convert shopapp to use TS instead of JS
+
+npx create-react-app shopappts --template typescript
+
+shopappts % npm i bootstrap react-bootstrap axios react-router-dom 
+shopappts % npm i @types/react-bootstrap @types/axios @types/react-router-dom -D
