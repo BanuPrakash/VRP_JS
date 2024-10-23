@@ -1386,4 +1386,44 @@ npx json-server --watch data.json --port 1234
     ...
 }
 ```
-each time you click next of prev currentQuestionIndex increments or decrements
+
+let [name, setName] = useState();
+let [age, setAge] = useState();
+```
+Heap area: name and age are created.
+
+// called only once
+useEffect(() => {
+
+},[])
+// called every time age changes
+useEffect(() => {
+
+}, [age])
+// called every time name changes
+useEffect(() => {
+
+}, [name])
+
+// called every time name or age changes
+useEffect(() => {
+    setAge(age + 1);
+}, [name, age])
+
+// called every time any props or state changes
+useEffect(() => {
+
+})
+```
+
+current scenario: bundle.js containing all components.
+
+This leads to FCP issue: First Contentful Paint.
+
+Nothing renders till bundle.js is loaded into browser
+
+Solution: lazy load the bundles which are not required for initial rendering.
+
+Example: cart.jsx and cartlist.jsx can be loaded into browser only when user clicks first time on "cart" icon.
+
+======
