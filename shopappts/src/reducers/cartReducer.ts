@@ -10,33 +10,33 @@ state
 import CartItem from "../model/CartItem";
 import { Product } from "../model/Product";
 
-type CartReducerState = {
+type  CartReducerState =  {
     cartItems: CartItem[],
     total: number,
     quantity: number
 }
 
 type ActionType = {
-    type: 'ADD_TO_CART',
+    type:'ADD_TO_CART',
     payload: Product
 } |
 {
     type: 'INCREMENT',
     payload: number
-} | {
+} |{
     type: 'DECREMENT',
     payload: number
 } | {
     type: 'CLEAR_CART'
 }
 
-export default function cartReducer(state: CartReducerState, action: ActionType) {
+export default function cartReducer(state: CartReducerState, action:ActionType) {
     switch (action.type) {
         // product has {id, title, price, image, description}
         // dispatch({type:'ADD_TO_CART', payload: product})
         case 'ADD_TO_CART':
             let { id, title, price, image } = action.payload;
-            if (state.cartItems.filter(p => p.id === action.payload.id).length != 0) {
+            if(state.cartItems.filter(p => p.id === action.payload.id).length != 0) {
                 return state;
             }
             let lineItem = {
@@ -58,16 +58,16 @@ export default function cartReducer(state: CartReducerState, action: ActionType)
         case 'INCREMENT':
             let products = state.cartItems;
             products.forEach(p => {
-                if (p.id == action.payload) {
+                if(p.id == action.payload) {
                     p.qty++;
                     p.amount = p.price * p.qty
                 }
             });
-            let totalAmt = products.map(p => p.amount).reduce((a1, a2) => a1 + a2, 0.0);
-
+            let totalAmt = products.map(p => p.amount).reduce( (a1, a2) => a1 + a2, 0.0);
+            
             return {
                 cartItems: products,
-                total: totalAmt,
+                total : totalAmt,
                 quantity: state.quantity
             };
         case 'DECREMENT':
