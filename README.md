@@ -1427,3 +1427,186 @@ Solution: lazy load the bundles which are not required for initial rendering.
 Example: cart.jsx and cartlist.jsx can be loaded into browser only when user clicks first time on "cart" icon.
 
 ======
+
+Div polluting in components
+Reason:
+XML has to have a root element:
+
+React throws error for below code:
+SampleComponent doesn't have a root element.
+
+```
+function App() {
+    return <div>
+        <SampleComponent />
+    </div>
+}
+React JSX can't return more than one element.
+function SampleComponent() {
+    return (
+        <h1>Hello</h1>
+        <h2>World!!!</h2>
+    )
+}
+```
+Solution 1: Div polluting
+```
+function SampleComponent() {
+    return (<div>
+            <h1>Hello</h1>
+            <h2>World!!!</h2>
+        </div>
+    )
+}
+```
+React Fragments:
+Use <React.Fragment> (or the shorthand <>...</>) to group elements without adding extra nodes to the DOM.
+
+Solution 2: using React.Fragment
+React.Fragment doesn't create an extra DOM, but acts like a 
+root element
+
+```
+function SampleComponent() {
+    return (<React.Fragment>
+            <h1>Hello</h1>
+            <h2>World!!!</h2>
+        </React.Fragment>
+    )
+}
+```
+
+Solution 3: React.Fragment shorthand
+```
+function SampleComponent() {
+    return (<>
+            <h1>Hello</h1>
+            <h2>World!!!</h2>
+        </>
+    )
+}
+```
+
+==========
+```
+<React.StrictMode>: 
+StrictMode is a tool for highlighting potential problems in an application. 
+Like Fragment, StrictMode does not render any visible UI. 
+It activates additional checks and warnings for its descendants.
+First it renders the components in memory to check wrong usage of life-cycle methods, not unsubsribing subscrioptions, ...
+Next Render is where you get UI.
+```
+
+State Management: Pending to convert shopapp to use Redux instead of Context.
+
+=====================================
+Angular apps can be devloped using TypeScript (90%) or DART.
+
+TypeScript: Industry standard react applications are also developed using TypeScript.
+
+everything in JS is valid in TypeScript.
+
+TypeScript language.
+Why TypeScript?
+* provides an optional typesystem for JS.
+in JS:
+let name = 'Jane';
+name = 22; // valid
+in TS:
+let name:string = 'Jane';
+name = 22; // tsc throws error
+
+* statically typed language unlike JS which is dynamically typed
+* Types enhance the code quality and understandiblity
+* catch errors aat compile time instead of runtime
+tsc: typeScript Compiler catches the errors at compilation time.
+* acts like documentation
+
+let name:string;
+let age:number;
+let product:Product;
+
+tsc Product.ts ==> Product.js ==> JS engine
+
+=======
+Data types:
+
+1) Basic types: number, string, boolean
+let age:number = 22;
+let name:string = 'Jane';
+let employed:boolean = true;
+
+2) Object type using "type"; to define the shape of object
+```
+// not a JSON Object, its the type declaration
+type Person = {
+    name:string,
+    age: number
+}
+
+function addPerson(p:Person): void {
+    console.log(p.name, p.age);
+}
+
+let per:Person = {"name":"Tim", "age": 43};
+addPerson(per);
+addPerson({"name": "Rani", "age": 23}); // valid
+addPerson({"name": "Rani"}); // invalid because "age" is not passed
+addPerson({"email": "rani@visa.com"}); // invalid because "email" is not part of shape
+```
+3) interface to declare the shape like type
+```
+interface Product {
+    "id": number,
+    "name": string,
+    "price": number
+}
+// interfaces can be extended
+interface Mobile extends Product {
+    "connectivity": string
+}
+
+let nothing:Mobile = {"id": 3, "name": "Nothing2", "price": 12000, "connectivity": "5G" }
+```
+
+4) interface as contract
+
+```
+interface Renderer {
+    render(reactElement:React.Element);
+}
+
+class TvRenderer implements Renderer {
+    render(reactElement:React.Element){
+
+    }
+}
+
+class DomRenderer implements Renderer {
+    render(reactElement:React.Element){
+        
+    }
+}
+```
+
+5) "any" type
+just like our JS type. Avoid this
+
+```
+let myData:any = 10;
+myData++; // can work or fail
+myData = "test"; // valid
+
+let myData: any = doTask(); // doTask() is a JS function, can return differnt types of type of data based on scenario.
+
+6) "unknown" type.
+similar to "any", but enforces to to do typeschecking before using it.
+
+```
+Create a node Prooject
+
+tscode> npm init --y
+tscode> npm i typescript -D
+this installs typesystem and tsc
+tsc ./src/anyExample.ts 
+node ./src/anyExample.js
