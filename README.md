@@ -1662,11 +1662,76 @@ underscore and lodash provides lots of utility functions for JS.
 
 Task: convert shopapp to use TS instead of JS
 
+```
 npx create-react-app shopappts --template typescript
 
 shopappts % npm i bootstrap react-bootstrap axios react-router-dom 
 shopappts % npm i @types/react-bootstrap @types/axios @types/react-router-dom -D
 
 Complete Cart.jsx and CartList.jsx
-
+```
 ===
+
+TypeScript: language , superset of JS, statically typed
+==> Decorators <<pending>>
+* typings.d.ts
+* DefinitlyTyped @types/...
+
+=================
+
+State Management
+* useState() and useReducer() at the the component level.
+* Context for state management --> Application level
+Context is a solution for state management provided by React.
+
+State management libraries based on Flux Architecture:
+1) Flux
+2) redux
+3) Mobx
+4) recoil
+
+Redux:
+* allows time-travel debugging
+* Redux DevTools 
+
+npx create-react-app contact-manager
+
+
+dispatch({type:'ADD_TO_CART', payload: product})
+
+clone state
+mutate state
+return state
+
+https://immutable-js.com/
+https://immerjs.github.io/immer/
+
+
+connect(
+    mapStateToProps,
+    mapDisptachToProps
+)(App)
+
+
+{
+    "user": {
+        avatar: "prof.png",
+        name : "George"
+    },
+    cart: {
+        cartItems: [...],
+        total : 5433.11
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addToCart: (prod) =>  dispatch({'type':'ADD_TO_CART', payload:prod})
+    }
+}
+
+
+props.addToCart({...})
+
+contact-manager % npm i redux react-redux
+
