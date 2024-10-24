@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import ContactView from './ContactView';
+function App(props) {
 
-function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello, {props.displayName}</h1>
+      {
+        props.contactList && props.contactList.map(contact => <ContactView contact={contact} key={contact.email} />)
+      }
     </div>
   );
 }
 
-export default App;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
+
+function mapStateToProps(state) {
+  {
+    return {
+      contactList: state.contacts,
+      displayName: state.profile.name
+    }
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+
+}
