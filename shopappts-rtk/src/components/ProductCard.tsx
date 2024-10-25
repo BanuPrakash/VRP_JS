@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { Product } from '../model/Product';
 
+import { useAppDispatch } from '../redux/store';
+import { addToCart } from '../redux/cartSlice';
 
 type AppProps = {
     product: Product,
@@ -12,8 +14,9 @@ type AppProps = {
 }
 
 export default function ProductCard({ product }: AppProps) {
+    const dispatch = useAppDispatch();
     let { id, title, price, image, description } = product;
-  
+
     return (
         <div className='col-md-4'>
             <Card style={{ width: '18rem', height: '50rem', margin: '5px' }}>
@@ -31,7 +34,9 @@ export default function ProductCard({ product }: AppProps) {
                         Rs. {price} &nbsp;
                     </span>
                     <span className='right px-2'>
-                        <Button variant='success' >Add</Button>
+                        <Button variant='success'
+                            onClick={() => dispatch(addToCart(product))}
+                        >Add</Button>
                     </span>
 
                 </Card.Footer>

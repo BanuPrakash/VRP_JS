@@ -1,14 +1,17 @@
 import React, { useContext } from 'react'
-import { CartContext } from '../context/CartProvider'
 import { Button, Container } from 'react-bootstrap';
 import CartList from './CartList';
+import { useAppSelector } from '../redux/store';
+import { useAppDispatch } from '../redux/store';
+import { clearCart } from '../redux/cartSlice';
 
 export default function Cart() {
-  let { cart, total, clearCart } = useContext(CartContext);
+  let {cartItems, total} = useAppSelector(state => state.cart);
+  let dispatch = useAppDispatch();
   return (
     <Container>
       {
-        cart.map(product => <CartList product={product} key={product.id}/>)
+        cartItems.map(product => <CartList product={product} key={product.id}/>)
       }
 
       <div className='row'>
@@ -18,7 +21,7 @@ export default function Cart() {
       <div className='row'>
         <div className='col-md-8'>&nbsp;</div>
         <div className='col-md-4'>
-          <Button variant='primary' onClick={() => clearCart()}>Checkout</Button>
+          <Button variant='primary' onClick={() => dispatch(clearCart())} >Checkout</Button>
         </div>
       </div>
     </Container>
