@@ -1735,3 +1735,39 @@ props.addToCart({...})
 
 contact-manager % npm i redux react-redux
 
+==========
+
+MongoDB:
+```
+docker run --name some-mongo -d mongo:latest -p 27017:27017
+
+docker cp students.json some-mongo:/tmp/students.json 
+
+docker cp restaurant.json some-mongo:/tmp/restaurant.json
+
+docker exec -it some-mongo bash
+
+mongoimport --db node_express_db --collection students --file tmp/students.json
+
+db.students.find({"scores":{$elemMatch: {score:{$gte:90}, type :'exam'}}})
+
+
+```
+
+Redux:
+1) create store
+2) reducers
+3) root reducer
+
+react-redux:
+connect
+mapStateToProps
+mapDispatchToProps
+
+react
+
+===
+React-redux hooks:
+useSelector: The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
+
+useDispatch: is equivalent to mapDispatchToProps argument to connect.
