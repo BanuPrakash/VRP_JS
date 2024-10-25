@@ -38,3 +38,10 @@ const cartSlice = createSlice({
     }
 });
 
+export const {
+    addToCart,
+    increment,
+    clearCart
+} = cartSlice.actions;
+
+export const cartreducers = cartSlice.reducer;
