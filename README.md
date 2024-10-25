@@ -1771,3 +1771,28 @@ React-redux hooks:
 useSelector: The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
 
 useDispatch: is equivalent to mapDispatchToProps argument to connect.
+
+
+===========
+
+RTK: Redux Toolkit
+convert shopappts to use RTK instead of Context for state-managment
+
+folder shopappts-rtk
+copy shopappts content except "node_modules" 
+
+shopappts-rtk % npm i @reduxjs/toolkit react-redux 
+
+```
+const slice = createSlice({
+  name: 'test',
+  initialState: 0,
+  reducers: {
+    increment: (state, action: PayloadAction<number>) => state + action.payload,
+    decrement: (state) => state - 1,
+    reset: (state) => 0
+  },
+})
+
+slice.actions.increment(2) ==> dispatch{type:'increment', payload: 2})
+```

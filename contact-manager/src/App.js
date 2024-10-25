@@ -63,7 +63,9 @@ export default App;
 //         <button onClick={doSubmit} type='button'>Add Contact</button>
 //       </form>
 //       {
-//         props.contactList && props.contactList.map(contact => <ContactView contact={contact} key={contact.email} />)
+//         props.contactList && props.contactList.map(contact => <ContactView 
+            // delEvt={props.removeContact}    
+    // contact={contact} key={contact.email} />)
 //       }
 //     </div>
 //   );
@@ -87,6 +89,7 @@ export default App;
 //   return {
 //     addContact: (contact) => dispatch({type: 'ADD_CONTACT', payload: contact}),
 //     clearContacts: () => dispatch({type:'CLEAR_CONTACTS'})
+//     removeContact: (email) => dispatch({type:'REMOVE_CONTACT', payload:email})
 //   }
 // }
 
