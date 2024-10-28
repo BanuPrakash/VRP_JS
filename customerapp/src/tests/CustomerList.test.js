@@ -2,6 +2,8 @@ import { screen, render, fireEvent } from '@testing-library/react'
 import CustomerList from '../components/CustomerList';
 //render renders VDOM to in-memory DOM
 
+
+
 // Test Suite
 describe("testing <CustomerList />", () => {
     it("renders <CustomerList />", () => {

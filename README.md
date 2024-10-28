@@ -1796,3 +1796,106 @@ const slice = createSlice({
 
 slice.actions.increment(2) ==> dispatch{type:'increment', payload: 2})
 ```
+
+https://thorben-janssen.com/query-complex-jpa-hibernate/
+
+=============================
+
+MongoDB
+
+Start docker Desktop
+docker run --name some-mongo -p 27017:27017 -d mongo:latest 
+
+==========
+NoSQL databases: MongoDB, Cassandra, Redis, ..
+
+MongoDB is a NoSQL database.
+* No relational database, each record / document can be of differnt format
+* RDBMS we have pre-defined schema 
+* Not structured like RDBMS
+* Data is stored in the form of BSON <<Binary version of JSON>>
+
+RDBMS                   MongoDB
+database                database
+table                   collection
+row                     document
+column                  field 
+
+ What is the CAP Theorem?
+The CAP Theorem in MongoDB, also known as Brewer's theorem, 
+is a principle in distributed system theory that states that it is impossible 
+for a distributed system to simultaneously guarantee three properties: 
+consistency "C", availability "A", and partition tolerance "P".
+
+```
+copy file from OS onto docker container:
+
+docker cp sales.json some-mongo:/tmp/sales.json
+
+access some-mongo container:
+
+docker exec -it some-mongo bash
+
+mongoimport --db vrp_db --collection sales --file tmp/sales.json
+
+mongosh 
+
+test> use vrp_db
+or
+
+test> use("vrp_db")
+
+vrp_db> show collections;
+sales
+
+// select * from sales
+vrp_db> db.sales.find();
+
+this displays first 20 documents only
+
+vrp_db> it
+// select * from sales where category = 'Condiments'
+
+vrp_db> db.sales.find({category: 'Condiments'})
+// and
+vrp_db> db.sales.find({category: 'Condiments', quarter: 2})
+// select category , sales from sales where category = 'Condiments' and quarter 2
+db.sales.find({category: 'Condiments', quarter: 2}, {category: 1, sales:1})
+
+// OR
+db.sales.find({$or:[{category: 'Condiments', quarter: 4}]})
+
+$or $gt $lt $gte $lte $exactMatch 
+
+```
+
+db.students.find({"scores":{$elemMatch: {score:{$gte:90}, type :'exam'}}})
+
+
+```
+db.books.insert({
+    "_id": 1, 
+    "title": "Spring in Action", 
+    "price": 1200.22, 
+    "author": {"name": "Rod Johnson", "email":"rod@gmail.com"}
+})
+
+db.books.find()
+
+or
+
+db.books.insert({
+    "_id": 1, 
+    "title": "Spring in Action", 
+    "price": 1200.22, 
+    "author": 123
+});
+
+db.authors.insert({
+    "id": 123,
+    "email": "rod@gmail.com",
+    "name": "Rod Johnson"
+})
+```
+
+generate REST endpoints for books collection
