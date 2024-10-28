@@ -1899,3 +1899,20 @@ db.authors.insert({
 ```
 
 generate REST endpoints for books collection
+
+http://localhost:8080/actuator
+
+httpd apache deamon server
+
+ab -c 10 -n 100 http://localhost:8080/api/products
+
+http://localhost:8080/actuator/metrics/http.server.requests
+http://localhost:8080/actuator/metrics/jvm.threads.live
+..
+
+ab -c 100 -n 200 http://localhost:8080/api/products
+ab -c 50 -n 100 http://localhost:8080/api/products/2
+
+Prometheus:
+http://localhost:9090/
+http_server_requests_seconds_count
